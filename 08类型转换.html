@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //其他类型转数字
+    //1.parseInt() //转整数
+    console.log(parseInt("10"));
+    console.log(parseInt("10a"));
+    console.log(parseInt("a10"));
+    console.log(parseInt("1ab0"));
+    console.log(parseInt("10.98"));
+    console.log(parseInt("10.98fda"));
+    //2.parseFloat() //转小数
+    console.log(parseFloat("10"));
+    console.log(parseFloat("10a"));
+    console.log(parseFloat("a10"));
+    console.log(parseFloat("1ab0"));
+    console.log(parseFloat("10.98"));
+    console.log(parseFloat("10.98fda"));
+    //3.Number() //转数字
+    console.log(Number("10"));
+    console.log(Number("10a"));
+    console.log(Number("a10"));
+    console.log(Number("1ab0"));
+    console.log(Number("10.98"));
+    console.log(Number("10.98fda"));
+
+    //其他类型转字符串
+    //.toString()  String()
+    var num=10;
+    console.log(num.toString());
+    var num1=20;
+    console.log(String(num1));
+    //如果变量有意义用.toString()转换
+    //如果变量没有意义用String()转换
+    var num2;
+    // console.log(num2.toString());
+    console.log(String(num2));
+
+    //其他类型转布尔
+    // Boolean()
+    console.log(Boolean(1));
+    console.log(Boolean(0));
+    console.log(Boolean(11));
+    console.log(Boolean(-10));
+    console.log(Boolean("haha"));
+    console.log(Boolean(""));
+    console.log(Boolean(null));
+    console.log(Boolean(undefined));
+</script>
+</body>
+</html>

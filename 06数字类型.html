@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 数字类型：整数和小数
+    *
+    * 二进制：
+    *     00000001
+    *     00000010
+    * 八进制：
+    *     00000007
+    *     00000010  --8
+    *     00000015  --13
+    * 十进制：
+    *     9
+    *     10
+    * 十六进制：
+    *     00000009
+    *     0000000a  --10
+    *     0000000f  --15
+    *     00000010  --16
+    * */
+    var num = 12; //十进制
+    var num2=012; //八进制
+    var num3=0x1a; //十六进制
+    console.log(num,num2,num3);
+    //取值范围
+    console.log(Number.MAX_VALUE);
+    console.log(Number.MIN_VALUE);
+
+    var n;
+    //是不是不是一个数字
+    console.log(isNaN(10));
+</script>
+</body>
+</html>
