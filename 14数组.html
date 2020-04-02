@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 数组的定义：
+    * 1.通过构造函数创建数组
+    * var 变量名=new Array(长度);
+    *
+    * 2.通过字面量的方式创建数组
+    * var 变量名=[];
+    *
+    * */
+
+    var array = new Array(10, 20, 30, 40, 50);
+    // var array = [10,20,30,40,50];
+    //获取数组元素
+    console.log(array[1]);
+    //设置数组元素
+    array[2] = 33;
+    console.log(array);
+    //获取数组元素个数
+    console.log(array.length);
+
+    //通过索引来设置数组中元素的值
+    var arr = [];
+    arr[1] = 20;
+    arr[2] = 30;
+    console.log(arr);
+
+    //for循环遍历数组
+    for (i in array) {
+        console.log(array[i]);
+    }
+
+    //求数组中所有元素的和
+    var arr1 = [10, 20, 30, 40, 50];
+    var sum = 0;
+    for (var i = 0; i < arr1.length; i++) {
+        sum += arr1[i];
+    }
+    console.log(sum);
+    //求数组中所有元素的平均值
+    console.log(sum / arr1.length);
+
+    //求数组中所有元素的最大值，最小值
+    var max = arr1[0];
+    var min = arr1[0];
+    for (var i = 1; i < arr1.length; i++) {
+        if (max < arr1[i]) {
+            max = arr1[i];
+        }
+        if (min > arr1[i]) {
+            min = arr1[i]
+        }
+    }
+    console.log(max);
+    console.log(min);
+
+    //倒序遍历数组
+    for (var i = arr1.length - 1; i >= 0; i--) {
+        console.log(arr1[i]);
+    }
+
+    //把数组中的每个元素用｜拼接到一起
+    var arr2 = ["姚明", "麦迪", "科比", "詹姆斯"];
+    var str = arr2[0];
+    for (var i = 0; i < arr2.length; i++) {
+        str += '|' + arr2[i]
+    }
+    console.log(str);
+
+    //把数组中所有非零的元素存到一个新数组中
+    var arr3 = [10, 0, 30, 0, 40, 50, 0];
+    var newArr = [];
+    for (var i = 0; i < arr3.length; i++) {
+        if (arr3[i] !== 0) {
+            newArr[newArr.length] = arr3[i];
+        }
+
+    }
+    console.log(newArr);
+
+    //反转数组
+    for (var i = 0; i < arr3.length / 2; i++) {
+        tmp = arr3[i];
+        arr3[i] = arr3[arr3.length - 1 - i];
+        arr3[arr3.length - 1 - i] = tmp;
+    }
+    console.log(arr3);
+
+    //提示用户输入班级人数，求总成绩，平均值，最高分，最低分
+    var perCount = parseInt(prompt("请输入班级人数："));
+    var scores = [];
+    for(var i=0;i<perCount;i++){
+        var score = parseInt(prompt("请输入第"+(i+1)+"个人的成绩"));
+        scores[scores.length]=score;
+    }
+    var sumscore = 0;
+    var maxscore = scores[0];
+    var minscore = scores[0];
+    for(var i=0;i<scores.length;i++){
+        sumscore += scores[i];
+        if(maxscore<scores[i]){
+            maxscore=scores[i]
+        }
+        if(minscore>scores[i]){
+            minscore=scores[i]
+        }
+    }
+    console.log(sumscore);
+    console.log(sumscore/scores.length);
+    console.log(max);
+    console.log(min);
+
+    //冒泡排序 从小到大
+    var arr4 = [10, 0, 30, 0, 50, 40, 0];
+    for(var i=0;i<arr4.length-1;i++){
+        for(var j=0;j<arr4.length-1-i;j++){
+            if(arr4[j]>arr4[j+1]){
+                tmp = arr4[j];
+                arr4[j]=arr4[j+1];
+                arr4[j+1]=tmp;
+            }
+        }
+    }
+    console.log(arr4);
+
+</script>
+</body>
+</html>
