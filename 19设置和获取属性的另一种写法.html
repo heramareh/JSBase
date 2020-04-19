@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.dog = {};
+        this.play = function () {
+            console.log("我喜欢打篮球");
+        }
+    }
+
+    var obj = new Person('卡卡西', 20);
+    console.log(obj.name);
+    console.log(obj.age);
+    obj.name = '佐助';
+    console.log(obj.name);
+    // 另一种写法
+    obj["name"] = '鸣人';
+    console.log(obj["name"]);
+    obj["play"]();
+
+</script>
+</body>
+</html>

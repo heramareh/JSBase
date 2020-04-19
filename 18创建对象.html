@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+    * 第一种创建对象的方式
+    * 实例化对象
+    * */
+    var obj = new Object();
+
+    //添加属性
+    obj.name = '七宝';
+    obj.age = 1;
+    obj.sex = '女';
+    //添加方法
+    obj.eat = function () {
+        console.log(obj.name + "喜欢吃面条");
+    };
+    obj.play = function () {
+        console.log(this.name + "喜欢玩绳子");
+    };
+
+    console.log(obj.name);
+    console.log(obj.age);
+    console.log(obj.sex);
+    obj.eat();
+    obj.play();
+
+    /*
+    * 工厂模式常见对象
+    * */
+    function createObj(name, age) {
+        var obj = new Object();
+        obj.name = name;
+        obj.age = age;
+        obj.say = function () {
+            console.log("我叫" + this.name + "，我今年" + this.age + "岁。")
+        };
+        return obj;
+    }
+
+    var per1 = createObj("七宝", 1);
+    per1.say();
+    var dog = createObj("大黄", 10);
+    dog.say();
+
+    /*
+    * 第二种自定义构造函数创建对象
+    * 首字母大写
+    * */
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+            console.log("我叫" + this.name + "，我今年" + this.age + "岁。")
+        };
+    }
+
+    var s = new Person("七宝", 1);
+    s.name = 'haha';
+    s.say();
+    //知道当前对象属于什么类型
+    console.log(s instanceof Person);
+
+    /*
+    * 第三种字面量的方式创建对象
+    * 缺陷：一次性的对象
+    *
+    * */
+    var obj1 = {};//空对象
+    //优化后的写法
+    var obj2={
+        name:"七宝",
+        age:1,
+        say:function () {
+            console.log("我是："+obj2.name);
+        },
+        eat:function () {
+            console.log("吃了");
+        }
+    };
+    obj2.say();
+
+</script>
+</body>
+</html>

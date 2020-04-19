@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    * js中的三种对象
+    * 1。内置对象
+    * 2。自定义对象 - 自定义的构造函数创建的对象
+    * 3。浏览器对象 - bom
+    *
+    * */
+
+    // 内置对象：Math
+
+    // pi
+    console.log(Math.PI);
+    // e
+    console.log(Math.E);
+    // abs 绝对值
+    console.log(Math.abs(-1));
+    console.log(Math.abs(1));
+    // ceil 向上取整
+    console.log(Math.ceil(12.4));
+    console.log(Math.ceil(12.9));
+    console.log(Math.ceil(12.09));
+    // floor 向下取整
+    console.log(Math.floor(12.9));
+    console.log(Math.floor(12.09));
+    // fround 将任意的数字转换为离它最近的单精度浮点数形式的数字
+    console.log(Math.fround(2));
+    console.log(Math.fround(2.1));
+    console.log(Math.fround(2.9));
+    // max 找出一组数中的最大值
+    console.log(Math.max(1,5,10,30,4,7));
+    // max 找出一组数中的最小值
+    console.log(Math.min(1,5,10,30,4,7));
+    // pow 几次方
+    console.log(Math.pow(2, 4));
+    console.log(Math.pow(25, 2));
+    // sqrt 平方根
+    console.log(Math.sqrt(4));
+    // random 返回[0,1)间的一个浮点
+    console.log(Math.random());
+
+    function MyMath() {
+        this.getMax=function(){
+            var max=arguments[0];
+            for (var i=0;i<arguments.length;i++) {
+                if(max<arguments[i]){
+                    max=arguments[i];
+                }
+            }
+            return max;
+        }
+    }
+
+    var mt = new MyMath();
+    console.log(mt.getMax(1,5,10,30,4,7));
+
+    //随机产生一个十六进制的颜色值
+    function getColor(){
+        var str="";
+        var arr=["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"];
+        var num = "#";
+        for(var i=0;i<6;i++){
+            num += arr[parseInt(Math.random()*16)];
+        }
+        return num;
+    }
+
+    window.onload = function () {
+        document.getElementById("dv").style.backgroundColor=getColor();
+    };
+    console.log(getColor())
+</script>
+</body>
+</html>
+<div id="dv">
+
+</div>

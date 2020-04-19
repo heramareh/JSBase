@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+    * 函数的定义
+    *
+    * function 函数名(){
+    *     函数体
+    * }
+    *
+    * */
+
+    // 求两个数字的和
+    function add(num1, num2) {
+        return num1 + num2;
+    }
+
+    var num1 = 10;
+    var num2 = 20;
+    console.log(add(num1, num2));
+
+    //冒泡排序
+    function bubbleSort(arr) {
+        for (var i = 0; i < arr.length - 1; i++) {
+            for (var j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                } //end if
+            } //end for
+        } //end for
+        console.log(arr);
+    }
+
+    bubbleSort([5, 4, 3, 2, 1])
+
+    /*
+    * arguments*/
+    function sum() {
+        var sum = 0;
+        for (var i = 0; i < arguments.length; i++) {
+            sum += arguments[i];
+        }
+        return sum;
+    }
+
+    console.log(sum(10, 20, 30));
+    console.log(sum(10, 20));
+
+    /*
+    * 匿名函数
+    * 函数表达式
+    * */
+    var f = function () {
+        console.log("haha");
+    };
+    f();
+
+    //函数有数据类型，数据类型是：function
+    console.log(typeof f);
+
+    /*
+    * 函数的自调用
+    * 一次性的
+    * */
+    (function () {
+        console.log("123haha");
+    })();
+
+    //函数可以作为参数使用，那么这个函数可以叫回调函数
+    function f1(fn) {
+        fn();
+    }
+
+    function f2() {
+        console.log("这样也可以");
+    }
+
+    f1(f2);
+
+    //函数可以作为返回值使用
+    function f3() {
+        console.log("f3函数调用了");
+        return function () {
+            console.log("返回个函数")
+        };
+    }
+
+    var ff = f3();
+    ff();
+
+    //判断一个数是否是质数
+    function isPrimeNumber(num) {
+        for (var i = 2; i <= Math.sqrt(num) + 1; i++) {
+            if (num % i === 0) {
+                return false
+            }
+        }
+        return true
+    }
+
+    console.log(isPrimeNumber(11))
+</script>
+</body>
+</html>

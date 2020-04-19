@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * 预解析
+    * 变量的声明提前，函数的声明提前
+    * */
+
+    f1();
+    console.log(c);//9
+    console.log(b);//9
+    console.log(a);//报错
+    function f1() {
+        var a=b=c=9; //b、c隐式全局变量
+        console.log(c);//9
+        console.log(b);//9
+        console.log(a);//9
+    }
+</script>
+</body>
+</html>

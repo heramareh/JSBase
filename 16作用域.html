@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*
+    * 除了函数以外，其他的任何地方定义的变量都是全局变量
+    * 函数内定义的变量是局部变量
+    * 隐式全局变量：声明的变量没有var
+    *
+    * 全局变量是不会被删除的，没有var的隐式全局变量是可以删除的
+    *
+    * 全局变量如果页面不关闭，就不会释放，就会占空间，消耗内存
+    * */
+
+    function f() {
+        number = 1000; //隐式全局变量
+    }
+    console.log(number);
+
+    var num1 = 10;
+    num2 = 20;
+    delete num1; //num1不会被删除
+    console.log(num1+10);
+    delete num2; //把num2删除了
+</script>
+</body>
+</html>
