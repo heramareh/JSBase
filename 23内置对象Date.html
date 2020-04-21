@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="common.js"></script>
+</head>
+<body>
+
+<script>
+    // // 当前的时间--当前的服务器
+    // var date = new Date();
+    // console.log(date);
+
+    // // 传入的时间
+    // var dt = new Date("2017-08-12");
+    // console.log(dt);
+
+    // // 传入的时间
+    // var dt = new Date("2017/08/12");
+    // console.log(dt);
+
+    // // 当前时间的时间戳
+    // var dt = Date.now();
+    // console.log(dt);
+    // // 数字类型
+    // console.log(typeof dt);
+
+
+    // var dt = new Date();
+    // //获取年
+    // console.log(dt.getFullYear());
+    // //获取月
+    // console.log(dt.getMonth()+1);//从0开始
+    // //获取日
+    // console.log(dt.getDate());
+    // //获取小时
+    // console.log(dt.getHours());
+    // //获取分钟
+    // console.log(dt.getMinutes());
+    // //获取秒
+    // console.log(dt.getSeconds());
+    // //获取星期
+    // console.log(dt.getDay());//星期从0开始
+
+
+    // var dt = new Date();
+    //
+    // console.log(dt.toString());
+    // // 英文的日期
+    // console.log(dt.toDateString());
+    // //数字格式的日期
+    // console.log(dt.toLocaleDateString());
+    // //时间
+    // console.log(dt.toTimeString());
+    // //时间
+    // console.log(dt.toLocaleTimeString());
+    // //毫秒
+    // console.log(dt.valueOf());
+    //
+    // //一种特殊写法，适用于不支持html5的浏览器
+    // var dt1 = + new Date();
+    // console.log(dt1);
+
+    // //格式化日期和时间
+    // function getDate(dt){
+    //     var year = dt.getFullYear();
+    //     var month = dt.getMonth()+1;
+    //     var day = dt.getDate();
+    //     var hour = dt.getHours();
+    //     var minute = dt.getMinutes();
+    //     var second = dt.getSeconds();
+    //     month = zifull(month);
+    //     day = zifull(day);
+    //     hour = zifull(hour);
+    //     minute = zifull(minute);
+    //     second = zifull(second);
+    //     return year + "-" + month + "-" + day + " " + hour + ":" + minute + ":" + second;
+    // }
+    //
+    // function zifull(s){
+    //     return s<10?"0"+s:s;
+    // }
+
+
+    console.log(getDate(new Date()));
+</script>
+</body>
+</html>
