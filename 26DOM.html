@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*img {*/
+            /*width: 50px;*/
+            /*height: 50px;*/
+        /*}*/
+        .cls {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            border: 1px solid red;
+        }
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: pink;
+            border: 1px solid red;
+        }
+        .disp {
+            display: none;
+        }
+        .blc {
+            background-color: black;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<button onclick="alert('哈哈')">弹框</button>
+
+<script>
+    /*
+    * JavaScript分三个部分
+    * ECMAScript标准：JS的基本语法
+    * DOM：Domcument Object Model 文档对象模型 操作页面元素
+    * BOM：Browser Object Model 浏览器对象模型 操作浏览器
+    * */
+
+    /*DOM：文档对象模型
+    *
+    * 文档：把一个html文件看成是一个文档
+    * XML文件也可以看成是一个文档
+    *
+    * HTML：展示信息，展示数据
+    * XML：侧重于存储数据
+    *
+    * 文档：一个页面就是一个文档
+    * 元素（element）：页面中所有标签都是元素，元素可以看成是对象
+    * 节点（node）：页面中所有内容都是节点
+    * root：根
+    *
+    *DOM树：由文档及文档中的所有元素组成的一个树形结构图
+    *
+    * */
+
+
+
+
+</script>
+
+<!--DOM操作初体验-->
+<input type="button" value="显示效果" id="btn" />
+<script>
+    document.getElementById('btn').onclick = function () {
+        alert("哈哈啊哈");
+    }
+</script>
+
+<!--点击按钮显示图片-->
+<input type="button" value="显示图片" id="btn1">
+<img src="" alt="" id="im">
+<script>
+    document.getElementById('btn1').onclick = function () {
+        var imObj = document.getElementById("im");
+        imObj.src = "images/Border.jpg";
+        imObj.width = "300";
+        imObj.height = "400";
+    }
+</script>
+
+
+<!--点击按钮修改p标签的显示内容-->
+<input type="button" value="设置p标签内容" id="btn2" />
+<p id="p1">我是p标签</p>
+<script>
+    document.getElementById('btn2').onclick = function () {
+        document.getElementById('p1').innerText = "我被修改了";
+    }
+</script>
+
+
+<!--点击按钮修改a标签的地址和热点文字-->
+<input type="button" value="修改a标签" id="btn3" />
+<a href="https://www.baidu.com" id="ak">百度一下</a>
+<script>
+    document.getElementById("btn3").onclick = function () {
+        var aObj = document.getElementById("ak");
+        aObj.href = "https://www.sougou.com";
+        aObj.innerText = "搜狗";
+    }
+</script>
+
+<!--点击按钮修改多个p标签的文字内容-->
+<input type="button" value="修改多个p标签" id="btn4" />
+<div id="dv1">
+    <p>哈哈哈</p>
+    <p>哈哈哈</p>
+    <p>哈哈哈</p>
+    <p>哈哈哈</p>
+    <p>哈哈哈</p>
+</div>
+
+<script>
+    document.getElementById('btn4').onclick = function () {
+        // var pObjs = document.getElementsByTagName('p2');
+        var pObjs = document.getElementById('dv1').getElementsByTagName('p');
+        for (var i=0;i<pObjs.length;i++) {
+            pObjs[i].innerText = "我是第" + i + "个"
+        }
+    }
+</script>
+
+<!--点击按钮修改图片的alt和title属性-->
+<input type="button" value="修改图片alt和title属性" id="btn5" />
+<img src="images/Border.jpg" alt="哈哈" title="嘎嘎">
+<script>
+    document.getElementById('btn5').onclick = function () {
+        var imgObjs = document.getElementsByTagName('img');
+        imgObjs[1].alt = "改了";
+        imgObjs[1].title = "呼呼";
+    }
+</script>
+
+<!--点击按钮修改文本框的值-->
+<input type="button" value="修改文本框的值" id="btn6">
+<input type="text" value=""><br/>
+<input type="text" value=""><br/>
+<input type="text" value=""><br/>
+<input type="text" value=""><br/>
+<script>
+    document.getElementById('btn6').onclick = function () {
+        var inputOjbs = document.getElementsByTagName('input');
+        for (var i=0;i<inputOjbs.length;i++) {
+            if (inputOjbs[i].type != "button") {
+                inputOjbs[i].value = "哈哈";
+            }
+        }
+    }
+</script>
+
+<!--点击每个图片弹出对话框-->
+<img src="images/Border.jpg" alt="">
+<img src="images/Border.jpg" alt="">
+<img src="images/Border.jpg" alt="">
+<script>
+    var imgOjbs = document.getElementsByTagName('img');
+    for (var i=0;i<imgOjbs.length;i++) {
+        imgOjbs[i].onclick = function () {
+            alert("哈哈");
+        }
+    }
+</script>
+
+
+<!--点击按钮修改按钮的value属性-->
+<input type="button" value="修改按钮value" id="btn7">
+<script>
+    document.getElementById('btn7').onclick = function () {
+        this.value = "我是按钮";
+        this.type = "text";
+        this.id = "bt2";
+    };
+</script>
+
+<!--点击图片修改自身的宽和高-->
+<img src="images/Border.jpg" alt="" id="im2">
+<script>
+    document.getElementById('im2').onclick = function () {
+        this.width = "200";
+        this.height = "200";
+    };
+</script>
+
+<!--排他功能-->
+<div id="pt">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+    <input type="button" value="没怀孕">
+</div>
+
+<script>
+    var inputObjs = document.getElementById('pt').getElementsByTagName('input');
+    for (var i=0;i<inputObjs.length;i++) {
+        inputObjs[i].onclick = function () {
+            for (var j=0;j<inputObjs.length;j++) {
+                inputObjs[j].value = "没怀孕";
+            }
+            this.value = "怀孕了";
+        }
+    }
+
+</script>
+
+<!--点击超链接切换图片-->
+<a href="images/Border.jpg" id="ak2"><img src="images/Bee.jpg" alt="" style="width: 100px;height: 100px;" id="im3"></a>
+<script>
+    document.getElementById('im3').onclick = function () {
+        this.src = document.getElementById('ak2').href;
+        return false;
+    };
+</script>
+
+<!--点击按钮显示大图-->
+<input type="button" value="显示大图" id="btn9">
+<img src="images/Border.jpg" alt="" id="im4">
+<script>
+    my$('btn9').onclick = function () {
+        my$('im4').src = "images/Bee.jpg";
+    };
+</script>
+
+<!--点击按钮修改性别-->
+<input type="button" value="修改性别" id="btn10">
+<input type="radio" value="1" name="sex" checked="checked">男
+<input type="radio" value="2" name="sex" id="rad1">女
+<input type="radio" value="3" name="sex">保密
+<script>
+    my$('btn10').onclick = function () {
+        my$('rad1').checked = true;
+    };
+</script>
+<br>
+<!--选择兴趣-->
+<input type="button" value="选择兴趣" id="btn11">
+<input type="checkbox" value="1" name="xingqu" />吃饭
+<input type="checkbox" value="2" name="xingqu" />睡觉
+<input type="checkbox" value="3" name="xingqu" id="ck1" />打豆豆
+<input type="checkbox" value="4" name="xingqu" />打篮球
+<input type="checkbox" value="5" name="xingqu" />踢足球
+<input type="checkbox" value="6" name="xingqu" id="ck2" />打羽毛球
+<script>
+    my$('btn11').onclick = function () {
+        my$('ck1').checked = true;
+        my$('ck2').checked = true;
+    };
+</script>
+
+<!--点击按钮选择菜单-->
+<input type="button" value="点菜" id="btn12">
+<select name="" id="ss">
+    <option value="1">油炸榴莲1</option>
+    <option value="2">油炸榴莲2</option>
+    <option value="3">油炸榴莲3</option>
+    <option value="4" id="op4">油炸榴莲4</option>
+    <option value="5">油炸榴莲5</option>
+</select>
+<script>
+    my$('btn12').onclick = function () {
+        my$('op4').selected = true;
+    };
+</script>
+<!--readonly:只读-->
+<textarea name="" id="tt" cols="30" rows="10" readonly>
+锄禾日当午
+汗滴禾下土
+谁知盘中餐
+粒粒皆辛苦
+</textarea>
+<!--disabled:禁用-->
+<input type="button" value="注册" id="btn13">
+<script>
+    my$('btn13').onclick = function () {
+        my$('tt').value = "哈哈";
+        my$('tt').innerText = "嘎嘎";
+    };
+</script>
+
+<!--点击按钮修改div宽、高、背景颜色-->
+<input type="button" value="设置样式" id="btn14">
+<div id="dv" style="width: 100px;height: 100px;background-color: pink;"></div>
+<script>
+    my$('btn14').onclick = function () {
+        obj = my$('dv');
+        obj.style.width = "200px";
+        obj.style.height = "200px";
+        obj.style.backgroundColor = "red";
+    }
+</script>
+
+<!--点击按钮设置div隐藏显示-->
+<input type="button" value="隐藏" id="btn15">
+<input type="button" value="显示" id="btn16">
+<div id="dv2" style="width: 50px;height: 50px;background-color: yellow;"></div>
+<script>
+    my$('btn15').onclick = function () {
+        my$('dv2').style.display = "none";
+    };
+    my$('btn16').onclick = function () {
+        my$('dv2').style.display = "block";
+    };
+</script>
+
+<!--点击按钮显示和隐藏-->
+<input type="button" value="隐藏" id="btn17">
+<div id="dv3" style="width: 50px;height: 50px;background-color: burlywood;"></div>
+<script>
+    my$('btn17').onclick = function () {
+        var dvObj = my$('dv3');
+        if (this.value == "隐藏") {
+            this.value = "显示";
+            dvObj.style.display = "none";
+        } else if (this.value == "显示") {
+            this.value = "隐藏";
+            dvObj.style.display = "block";
+        }
+    };
+</script>
+
+<!--点击按钮设置div的样式-->
+<input type="button" value="设置样式" id="btn18">
+<div id="dv4"></div>
+<script>
+    my$('btn18').onclick = function () {
+        // var dvObj = my$('dv4');
+        // dvObj.style.width = "100px";
+        // dvObj.style.height = "100px";
+        // dvObj.style.backgroundColor = "blue";
+        // dvObj.style.border = "1px solid red";
+        // dvObj.style = "width:"
+        my$('dv4').className = "cls";
+    };
+</script>
+
+<!--点击按钮 通过类样式的方式设置div的显示和隐藏-->
+<input type="button" value="隐藏2" id="btn19">
+<div id="dv5" style="width: 50px;height: 50px;background-color: yellow;"></div>
+<script>
+    my$('btn19').onclick = function () {
+        var dvObj = my$('dv5');
+        console.log(dvObj.className);
+        if (dvObj.className != "disp") {
+            this.value = "隐藏";
+            dvObj.className = "disp";
+        } else {
+            this.value = "显示";
+            dvObj.className = "";
+        }
+    };
+</script>
+
+<!--网页开关灯-->
+<input type="button" value="开/关灯" id="btn20">
+<script>
+    my$('btn20').onclick = function () {
+
+        document.body.className = document.body.className != "blc" ? "blc" : "";
+    };
+</script>
+</body>
+</html>

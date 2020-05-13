@@ -26,3 +26,12 @@ function getDate(dt){
 function zifull(s){
     return s<10?"0"+s:s;
 }
+
+/**
+ * 根据id获取元素
+ * @param id
+ * @returns {HTMLElement}
+ */
+function my$(id) {
+    return document.getElementById(id);
+}
