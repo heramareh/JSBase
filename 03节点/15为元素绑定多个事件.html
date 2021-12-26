@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<script src="../common.js"></script>
+<script>
+    // 只会执行最后一个事件
+    // my$("btn").onclick = function () {
+    //     console.log("第一个事件");
+    // };
+    // my$("btn").onclick = function () {
+    //     console.log("第二个事件");
+    // };
+    // my$("btn").onclick = function () {
+    //     console.log("第三个事件");
+    // }
+
+
+    // 为按钮绑定点击事件
+    // 参数1：事件的类型---事件的名字，没有on
+    // 参数2：事件处理函数---函数（命名函数，匿名函数）
+    // 参数3：布尔类型，目前就写false
+    my$("btn").addEventListener("click", function () {
+        console.log("我是第一个事件");
+    }, false);
+    my$("btn").addEventListener("click", function () {
+        console.log("我是第二个事件");
+    }, false);
+    my$("btn").addEventListener("click", function () {
+        console.log("我是第三个事件");
+    }, false);
+
+
+    //添加点击事件，兼容ie8
+    function addEventListener(element, type, fn) {
+        if (element.addEventListener) {
+            element.addEventListener(type, fn, false);
+        }else if(element.attachEvent) {
+            element.attachEvent("on"+type, fn);
+        }else {
+            element["on"+type] = fn;
+        }
+    }
+</script>
+</body>
+</html>

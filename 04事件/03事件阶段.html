@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        /**
+         * 事件的三个阶段
+         *
+         * 事件捕获阶段 ： 从外向内
+         * 事件目标阶段 ： 最开始选择的那个
+         * 事件冒泡阶段 ： 从里向外
+         *
+         * addEventListener("没有on的事件类型",事件处理函数,控制事件阶段的)
+         * 事件触发的过程中，可能会出现事件冒泡的效果，为了阻止事件冒泡--->
+         * window.event.cancelBubble=true;
+         * window.event就是一个对象，是IE的标准
+         * e.stopPropagation();阻止事件冒泡
+         * window.event和e都是事件参数对象，一个是IE的标准，一个是火狐的标准
+         * 事件参数e在IE8的浏览器中是不存在，此时用window.event来代替
+         * addEventListener中第三个参数是控制事件阶段的
+         * 事件的阶段有三个：
+         * 通过e.eventPhase这个属性可以知道当前的事件是什么阶段的
+         * 如果这个属性的值是：
+         * 1：捕获阶段（控制事件阶段的参数为true）
+         * 2：目标阶段
+         * 3：冒泡阶段（控制事件阶段的参数为false）
+         * 一般默认都是冒泡阶段，很少用捕获阶段
+         */
+    </script>
+</head>
+<body>
+
+</body>
+</html>

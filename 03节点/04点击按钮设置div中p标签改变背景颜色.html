@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="button" value="变色" id="btn">
+<div id="dv">
+    <span>这是span</span>
+    <p>这是p</p>
+    <span>这是span</span>
+    <p>这是p</p>
+    <span>这是span</span>
+    <p>这是p</p>
+    <a href="https://www.baidu.com">百度一下，你就知道</a>
+</div>
+<script>
+    my$("btn").onclick = function () {
+        var dvObj = my$("dv");
+        var nodes = dvObj.childNodes;
+        for (var i=0;i<nodes.length;i++) {
+            if(nodes[i].nodeType==1 && nodes[i].nodeName=="P") {
+                nodes[i].style.backgroundColor="red";
+            }
+        }
+    }
+</script>
+</body>
+</html>

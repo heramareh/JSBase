@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+<script>
+    /*
+    *元素创建的三种方式
+    *1.document.write("标签的代码及内容");
+    * （缺陷：如果是在页面加载完毕后，此时通过这种方式创建元素，那么页面上存在的所有内容被干掉了）
+    *2.对象.innerHTML="标签及代码";
+    *3.document.createElement("标签名字");
+    */
+</script>
+<input type="button" value="创建一个p" id="btn">
+<div id="dv"></div>
+<script src="../common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        // // 第一种方式
+        // document.write("<p>我是一个p</p>");
+        // // 第二种方式
+        // my$("dv").innerHTML = "<p>我是一个p</p>";
+        //第三种方式(每点击一次就追加一个)
+        var pObj = document.createElement("p");
+        setInnerText(pObj, "这是一个p");
+        //把元素追加到父级元素中
+        my$("dv").appendChild(pObj);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .parent {
+            width: 500px;
+            height: 500px;
+            border: 1px solid black;
+            list-style-type: none;
+            margin: 200px auto;
+        }
+        .hd {
+            width: 500px;
+            height: 50px;
+            float: left;
+            text-align: center;
+            line-height: 50px;
+        }
+        .bd {
+            width: 500px;
+            height: 450px;
+            float: left;
+
+        }
+        .hd span {
+            width: 125px;
+            height: 100%;
+            background-color: cornflowerblue;
+            display: block;
+            /*margin-right: 33px;*/
+            float: left;
+            cursor: pointer;
+        }
+        .hd span.current {
+            background-color: rebeccapurple;
+        }
+        .bd li {
+            display: none;
+        }
+        .bd li.current {
+            height: 100%;
+            width: 100%;
+            background-color: pink;
+            display: block;
+        }
+    </style>
+    <script src="common.js"></script>
+</head>
+<body>
+<div class="parent" id="box">
+    <div class="hd">
+        <span class="current">娱乐</span>
+        <span>新闻</span>
+        <span>体育</span>
+        <span>综合</span>
+    </div>
+    <div class="bd">
+        <li class="current">我是娱乐模块</li>
+        <li>我是新闻模块</li>
+        <li>我是体育模块</li>
+        <li>我是综合模块</li>
+    </div>
+</div>
+<script>
+    var box = my$("box");
+    var hd = box.getElementsByClassName("hd")[0];
+    var bd = box.getElementsByClassName("bd")[0];
+    var spans = hd.getElementsByTagName("span");
+    var lis = bd.getElementsByTagName("li");
+    for (var i=0;i<spans.length;i++) {
+        spans[i].setAttribute("index", i);
+        spans[i].onclick = function () {
+
+            for (var j=0;j<spans.length;j++) {
+                spans[j].removeAttribute("class");
+            }
+            this.className = "current";
+            for (var k=0;k<lis.length;k++) {
+                lis[k].removeAttribute("class");
+            }
+            var num = this.getAttribute("index");
+            lis[num].className = "current";
+        }
+    }
+</script>
+</body>
+</html>

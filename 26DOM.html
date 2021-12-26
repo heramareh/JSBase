@@ -26,6 +26,24 @@
         .blc {
             background-color: black;
         }
+        ul {
+            list-style-type: none;
+            cursor: pointer;
+        }
+        .lls {
+            background-color: yellow;
+        }
+        .dd {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border: 2px solid green;
+            float: left;
+            margin-left: 10px;
+        }
+        input {
+            color: gray;
+        }
     </style>
     <script src="common.js"></script>
 </head>
@@ -362,5 +380,234 @@
         document.body.className = document.body.className != "blc" ? "blc" : "";
     };
 </script>
+
+<!--禁用文本框属性disabled-->
+<input type="button" value="禁用文本框" id="btn21">
+<input type="text" id="txt">
+<script>
+    my$('btn21').onclick = function () {
+        my$('txt').disabled = true;
+    };
+</script>
+
+<!--点击按钮修改列表背景颜色-->
+<input type="button" value="变色" id="btn22">
+<ul id="uu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+    my$('btn22').onclick = function () {
+        my$('uu').style.backgroundColor = "yellow";
+    };
+</script>
+
+<!--阻止超链接跳转-->
+<a href="https://www.baidu.com" id="a1">百度</a>
+<script>
+    my$('a1').onclick = function () {
+        return false;
+    }
+</script>
+
+<!--点击小图显示大图-->
+<a href="./images/Bee.jpg" id="a2"><img src="./images/Bee.jpg" style="width: 200px; height: 200px;" alt=""></a>
+<img src="" alt="" id="img1">
+<script>
+    my$('a2').onclick = function () {
+        my$('img1').src = this.href;
+        return false;
+    };
+</script>
+
+<!--列表的高亮显示-->
+<ul id="uu1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+<script>
+    var liObjs = my$('uu1').getElementsByTagName('li');
+    for (var i = 0; i<liObjs.length; i++) {
+        liObjs[i].onmouseover = function () {
+            this.style.backgroundColor = "pink";
+        };
+        liObjs[i].onmouseout = function () {
+            this.style.backgroundColor = "";
+        };
+    }
+</script>
+
+<!--根据name属性值获取元素-->
+<input type="button" value="显示效果" id="name_btn"/><br/>
+<input type="text" value="你好" name="name1"/><br/>
+<input type="text" value="你好" name="name1"/><br/>
+<input type="text" value="你好" name="name2"/><br/>
+<input type="text" value="你好" name="name3"/><br/>
+<script>
+
+    // 点击按钮改变所有name属性值为name1的文本框的value属性值
+    my$("name_btn").onclick = function () {
+        var objs = document.getElementsByName("name1");
+        for(var i = 0; i<objs.length;i++) {
+            objs[i].value="哈哈";
+        }
+    }
+</script>
+
+<!--根据类样式的名字获取元素-->
+<p class="lls">这是第一个p</p>
+<p>这是第二个p</p>
+<span class="lls">这是第一个span</span>
+<span>这是第二个span</span>
+<div class="cls lls">这是第一个div</div>
+<div class="cls">这是第二个div</div>
+<input type="button" value="修改样式" id="class_btn"/>
+<script>
+    my$("class_btn").onclick = function () {
+        var objs = document.getElementsByClassName("lls");
+        for (var i=0;i<objs.length;i++) {
+            objs[i].style.backgroundColor="red";
+        }
+    }
+</script>
+
+<!--获取元素的其他方式-->
+<p>这是一个p</p>
+<p class="cls">这是一个p</p>
+<span>这是一个span</span>
+<span class="cls">这是一个span</span>
+<input type="button" value="显示效果" id="other_btn"/><br/>
+<script>
+    // 点击按钮弹出对话框
+    var btnObj = document.querySelector("#other_btn");
+    btnObj.onclick = function () {
+        alert("哈哈哈哈");
+    };
+
+    var objs = document.querySelectorAll(".cls");
+    for (var i = 0; i < objs.length; i++) {
+        objs[i].style.backgroundColor="green";
+    }
+</script>
+
+<!--div高亮显示-->
+<div class="cls dd"></div>
+<div class="cls dd"></div>
+<div class="cls dd"></div>
+<div class="cls dd"></div>
+<div class="cls dd"></div>
+</br>
+<script>
+    var objs = document.getElementsByClassName("dd");
+    for (var i=0;i<objs.length;i++) {
+        objs[i].onmouseover=function () {
+            this.style.border="2px solid red";
+        };
+        objs[i].onmouseout=function () {
+            this.style.border="";
+        }
+    }
+</script>
+
+<!--模拟搜索框-->
+<input type="text" value="请输入搜索内容" id="search_input"/>
+<script>
+    var obj = document.getElementById("search_input");
+    obj.onfocus = function () {
+        if (this.value == "请输入搜索内容") {
+            this.value = "";
+            this.style.color = "black";
+        }
+    };
+    obj.onblur = function () {
+        if (this.value.length == 0) {
+            this.value = "请输入搜索内容";
+            this.style.color = "gray";
+        }
+    };
+</script>
+
+<!--验证文本框密码长度-->
+<input type="text" value="" id="txt1">
+<script>
+    my$("txt1").onblur = function () {
+        if (this.value.length >= 8 && this.value.length <= 10) {
+            this.style.backgroundColor = "green";
+        } else {
+            this.style.backgroundColor = "red";
+        }
+    }
+</script>
+
+<!--设置和获取文本框的值-->
+<input type="text" value="文本框" id="txt2">
+<script>
+    my$("txt2").onblur = function () {
+        console.log(this.value);
+        this.value = "哈哈";
+    };
+</script>
+
+<!--innerText（都支持）和textContent（IE8不支持）-->
+<input type="button" value="设置div的值" id="set_div_btn"></br>
+<div class="cls" id="dv11"></div>
+<script>
+    my$("set_div_btn").onclick = function () {
+        // my$("dv11").textContent = "hehe";
+        // my$("dv11").innerText = "这是div";
+        console.log(getInnerText(my$("dv11")));
+        setInnerText(my$("dv11"), "<p>这是一个p</p>");
+        // my$("dv11").innerHTML="<p>这是一个p</p>";
+    };
+    function setInnerText(element, text) {
+        if (typeof element.textContent=="undefined") {
+            element.innerText = text;
+        } else {
+            element.textContent = text;
+        }
+    }
+    function getInnerText(element) {
+        if (typeof element.textContent=="undefined") {
+            return element.innerText;
+        } else {
+            return element.textContent;
+        }
+    }
+</script>
+
+<!--自定义属性操作-->
+<input type="button" value="移除自定义属性" id="remove">
+<div id="dv12" score="10" class="cls"></div>
+<ul id="uuu">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+<script>
+    var objs = my$("uuu").getElementsByTagName("li");
+    for (var i=0;i<objs.length;i++) {
+        objs[i].setAttribute("score", (i+1)*10);
+    }
+    for (var i=0;i<objs.length;i++) {
+        objs[i].onclick = function () {
+            alert(this.getAttribute("score"));
+        };
+    }
+    my$("remove").onclick = function () {
+        my$("dv12").removeAttribute("score");
+        my$("dv12").removeAttribute("class");
+    }
+</script>
+
 </body>
+
 </html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #dv {
+            width: 300px;
+            height: 300px;
+            margin: 200px auto;
+            background-color: pink;
+        }
+        table {
+            width: 100%;
+            height: 100%;
+        }
+        thead {
+            background-color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<div id="dv">
+<table>
+    <thead id="th">
+        <tr>
+            <th>
+                <input type="checkbox" id="cbAll">
+            </th>
+            <th>菜名</th>
+            <th>饭店</th>
+        </tr>
+    </thead>
+    <tbody id="tb">
+        <tr>
+            <th>
+                <input type="checkbox">
+            </th>
+            <th>红烧肉</th>
+            <th>田老师</th>
+        </tr>
+        <tr>
+            <th>
+                <input type="checkbox">
+            </th>
+            <th>西红柿鸡蛋</th>
+            <th>田老师</th>
+        </tr>
+        <tr>
+            <th>
+                <input type="checkbox">
+            </th>
+            <th>油炸榴莲</th>
+            <th>田老师</th>
+        </tr>
+        <tr>
+            <th>
+                <input type="checkbox">
+            </th>
+            <th>清蒸茄子</th>
+            <th>田老师</th>
+        </tr>
+    </tbody>
+</table>
+</div>
+<script src="../common.js"></script>
+<script>
+    var ckAll = my$("cbAll");
+    var cks = my$("tb").getElementsByTagName("input");
+    ckAll.onclick = function () {
+        for (var i=0;i<cks.length;i++) {
+            cks[i].checked=this.checked;
+        }
+    };
+    for (var i=0;i<cks.length;i++) {
+        cks[i].onclick = function () {
+            var flag = true;
+            for (var j = 0; j < cks.length; j++) {
+                if(!cks[j].checked) {
+                    flag = false;
+                    break
+                }
+            }
+            ckAll.checked=flag;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        /*
+        * 解绑事件
+        * 注意：用什么方式绑定事件，就应该用对应的方式解绑事件
+        *
+        * 1.解绑事件
+        * 对象.on事件名字=事件处理函数--->绑定事件
+        * 对象.on事件名字=null;
+        *
+        * 2.解绑事件
+        * 对象.addEventListener("没有on的事件类型",命名函数,false); ---绑定事件
+        * 对象.removeEventListener("没有on的事件类型",函数名字,false);
+        *
+        * */
+    </script>
+</head>
+<body>
+<input type="button" value="按钮" id="btn">
+<input type="button" value="删除第一个按钮事件" id="btn2">
+<script src="../common.js"></script>
+<!--<script>-->
+    <!--my$("btn").onclick = function () {-->
+        <!--console.log("haha");-->
+    <!--};-->
+
+    <!--my$("btn2").onclick = function () {-->
+        <!--// 1.解绑事件-->
+        <!--my$("btn").onclick=null;-->
+    <!--}-->
+<!--</script>-->
+<!--<script>-->
+    <!--function one() {-->
+        <!--console.log("diyige");-->
+    <!--}-->
+    <!--function two() {-->
+        <!--console.log("two");-->
+    <!--}-->
+    <!--my$("btn").addEventListener("click", one, false);-->
+    <!--my$("btn").addEventListener("click", two, false);-->
+
+    <!--// 2.解绑事件-->
+    <!--my$("btn2").onclick = function () {-->
+        <!--my$("btn").removeEventListener("click", two, false);-->
+    <!--}-->
+<!--</script>-->
+
+<!--仅支持ie8-->
+<!--<script>-->
+    <!--function one() {-->
+        <!--console.log("diyige");-->
+    <!--}-->
+    <!--function two() {-->
+        <!--console.log("two");-->
+    <!--}-->
+    <!--my$("btn").attachEvent("onclick", one);-->
+    <!--my$("btn").attachEvent("onclick", two);-->
+
+    <!--// 3.解绑事件-->
+    <!--my$("btn2").onclick = function () {-->
+        <!--my$("btn").detachEvent("onclick", two);-->
+    <!--}-->
+<!--</script>-->
+</body>
+</html>

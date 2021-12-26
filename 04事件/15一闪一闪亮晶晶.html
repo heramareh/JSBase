@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            border: 1px solid red;
+            font-size: 30px;
+        }
+        span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="亮起来" id="btn">
+<div id="dv"></div>
+<script src="../common.js"></script>
+<script>
+    my$("btn").onclick = function () {
+        setInterval(function () {
+            my$("dv").innerHTML = "<span>⭐️</span>";
+            var x = parseInt(Math.random()*500+1);
+            var y = parseInt(Math.random()*500+1);
+            var obj = my$("dv").getElementsByTagName("span")[0];
+            obj.style.marginLeft = x+"px";
+            obj.style.marginTop = y+"px";
+        }, 200);
+    }
+</script>
+</body>
+</html>

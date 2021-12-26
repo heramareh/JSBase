@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../common.js"></script>
+</head>
+<body>
+<input type="button" value="变色" id="btn">
+<ul id="uu">
+    <li>鱼香肉丝</li>
+    <li>红烧肉</li>
+    <li>红烧茄子</li>
+    <li>家常豆腐</li>
+    <li>水煮肉片</li>
+    <li>水煮鱼</li>
+    <li>地三鲜</li>
+    <li>孜然羊肉</li>
+</ul>
+<script>
+    my$("btn").onclick = function () {
+        var nodes = my$("uu").childNodes;
+        var count = 0;
+        for(var i=0;i<nodes.length;i++) {
+            if (nodes[i].nodeType == 1 && nodes[i].nodeName == "LI") {
+                nodes[i].style.backgroundColor = count%2==0?"red":"yellow";
+                count++;
+            }
+        }
+    }
+</script>
+</body>
+</html>

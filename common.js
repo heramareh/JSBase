@@ -35,3 +35,61 @@ function zifull(s){
 function my$(id) {
     return document.getElementById(id);
 }
+
+/**
+ * 设置text
+ * @param element
+ * @param text
+ */
+function setInnerText(element, text) {
+    if (typeof element.textContent=="undefined") {
+        element.innerText = text;
+    } else {
+        element.textContent = text;
+    }
+}
+
+/**
+ * 获取元素文本内容
+ * @param element
+ * @returns {*}
+ */
+function getInnerText(element) {
+    if (typeof element.textContent=="undefined") {
+        return element.innerText;
+    } else {
+        return element.textContent;
+    }
+}
+
+/**
+ * 为任意元素绑定任意事件，兼容ie8
+ * @param element
+ * @param type
+ * @param fnName
+ */
+function addEventListener(element, type, fnName) {
+    if (element.addEventListener) {
+        element.addEventListener(type, fnName, false);
+    }else if(element.attachEvent) {
+        element.attachEvent("on"+type, fnName);
+    }else {
+        element["on"+type] = fnName;
+    }
+}
+
+/**
+ * 为任意元素解绑任意事件，兼容ie8
+ * @param element
+ * @param type
+ * @param fnName
+ */
+function removeEventListener(element, type, fnName) {
+    if (element.removeEventListener) {
+        element.removeEventListener(type, fnName, false);
+    }else if(element.detachEvent) {
+        element.detachEvent("on"+type, fnName);
+    }else {
+        element["on"+type] = null;
+    }
+}
